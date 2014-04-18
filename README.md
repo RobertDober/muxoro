@@ -30,7 +30,7 @@ This still updates the status every minute.
     muxoro :help
 ```
 
-Which gives the following (unless I forgot to copy the latest version's output into the README of course=:
+Which gives the following (unless I forgot to copy the latest version's output into the README of course)
 
 ```
     Coming reallly really soon (before the gem's release in any case)

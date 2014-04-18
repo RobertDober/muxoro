@@ -7,7 +7,7 @@ require 'muxoro/version'
 Gem::Specification.new do | spec |
   spec.name        = 'muxoro'
   spec.version     = Muxoro::VERSION
-  spec.authors     = %w{Robert Dober}
+  spec.authors     = ['Robert Dober']
   spec.email       = %w{ robert.dober@gmail.com }
   spec.description = %{Launch a Pomodoro Timer from the command line}
   spec.summary     = %{Launch a Pomodoro Timer which updates the status line of all/given tmux sessions with a pomodoro timer}
@@ -15,7 +15,7 @@ Gem::Specification.new do | spec |
   spec.license     = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
-  spec.executables   = spec.files.grep(%r{\abin/}) { |f| File.basename(f) }
+  spec.executables   = spec.files.grep(%r{\Abin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{\Atest|\Aspec|\Afeatures/})
   spec.require_paths = %w{lib}
 
