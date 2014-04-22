@@ -85,7 +85,33 @@ For now only colors for the final status update (the one counting down to 0) can
     muxoro fg: '#ff00dd', bg: '#ddaacc'
 ```
 
+As tmux renders by approximating RGB colors to its 256 color map your milage may vary, in this case we will get
+a pink background with a reddish font.
+
+One can use color names too of course and set only background or forground.
+
+```
+    muxoro fg: red
+```
+
+
 ### Reading Parameters from a Configuration File
 
 
 Coming Soon
+
+
+## How it Works and Why
+
+
+it is that complicated.
+
+The idea was to create a daemon, which will send tmux configuration messages to all (indicated) sessions. The main reason for that
+being able to run a pomodoro timer in a tmux session, which itself, is using a Ruby environment (e.g. rvm gemset) that does not
+contain the _Muxoro_ gem itself.
+
+However, when run in a tmux session, which is a common use case for folx installing this gem on purpose, the timer affects the
+current session **only**.
+
+
+There are for sure better maybe also simpler ways to achieve this.

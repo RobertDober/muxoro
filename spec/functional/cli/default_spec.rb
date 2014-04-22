@@ -24,7 +24,8 @@ describe Muxoro::CLI do
         .ordered
         .and_return "0: \ncustom: regrgz?dfez(-ç_çfzefg"
 
-      expect_commands sessions: %w{0 custom}
+      expect_sleeps seconds: 60, times: 26
+      expect_tmux_commands for_sessions: %w{0 custom}, with_values: 25.downto(1)
     end
     it{ subject.run [] }
   end # context 'system interaction with default usage and two tmux sessions'

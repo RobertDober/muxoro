@@ -6,9 +6,8 @@ module Muxoro
     attr_reader :options
 
     def run args
-      parser = Lab42::Options.new
-      @options = parser.parse args
-      
+      init args
+
       if options.help
         puts 'muxoro [options]'
         return
@@ -17,9 +16,11 @@ module Muxoro
     end
 
     private
-    def initialize
-      @sleepy = 60
+    def init args
+      @sleepy  = 60
       @minutes = 25
+      parser   = Lab42::Options.new
+      @options = OptionsHelper.new.init parser.parse( args )
     end
 
     def end_sessions
@@ -32,13 +33,19 @@ module Muxoro
       end
     end
     def get_open_sessions
-      @open_sessions = 
-        %x{tmux ls}
-          .split("\n")
-          .map{|l| l.sub /:.*/, '' }
+      if @options.sessions
+        @open_sessions = @options.sessions.split ','
+      elsif ENV['TMUX']
+        @open_sessions = %w{:}
+      else
+        @open_sessions =
+          %x{tmux ls}
+            .split("\n")
+            .map{|l| l.sub /:.*/, '' }
 
-      raise RuntimeError, 'No tmux seessions running, aborting...' if @open_sessions.empty?
-      $stderr.puts 'Continuing...'
+        raise RuntimeError, 'No tmux seessions running, aborting...' if @open_sessions.empty?
+        $stderr.puts 'Continuing...'
+      end
     end
 
     def run_sessions
@@ -51,8 +58,8 @@ module Muxoro
     end
     def run!
       get_open_sessions
-        run_sessions
-        end_sessions
+      run_sessions
+      end_sessions
     end
   end # module CLI
 end # module Muxoro
