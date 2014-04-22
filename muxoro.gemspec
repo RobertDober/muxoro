@@ -36,12 +36,13 @@ Gem::Specification.new do | spec |
 
   spec.required_rubygems_version = '>= 2.2.2'
 
-  spec.add_dependency 'lab42_options', '~> 0.5.0'
+  spec.add_dependency 'lab42_options', '~> 0.4.0'
+  spec.add_dependency 'daemons', '~> 1.1.9'
 
   spec.add_development_dependency 'bundler', '~> 1.6.2'
   spec.add_development_dependency 'rspec', '~> 3.0.0.beta2'
   spec.add_development_dependency 'cucumber', '~> 1.3.14'
   spec.add_development_dependency 'pry', '~> 0.9.12'
   spec.add_development_dependency 'pry-nav', '~> 0.2.3'
-  spec.add_development_dependency 'aruba', '~> 0.5.4'
+  spec.add_development_dependency 'timecop', '~> 0.7.1'
 end

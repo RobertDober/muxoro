@@ -1,7 +1,11 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env sh
 
-$:.unshift File.expand_path '../../lib', __FILE__
-
-require 'muxoro/cli'
-
-Muxoro::CLI.run ARGV
+command=${1:-start}
+if test $# -gt 0
+then
+  if test $1 == 'start'
+  then
+    shift
+  fi
+fi
+exec ruby $0.rb $command $@
