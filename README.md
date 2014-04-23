@@ -138,3 +138,7 @@ current session **only**.
 
 
 There are for sure better maybe also simpler ways to achieve this.
+
+## Credits
+
+Daemoinizing has been a peace of cake thanx to the [daemons](http://daemons.rubyforge.org/) gem. 

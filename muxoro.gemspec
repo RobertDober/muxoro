@@ -21,13 +21,22 @@ Gem::Specification.new do | spec |
 
   spec.post_install_message = %q{
 
+  +============================================================================+
+  |                                                                            |
+  |  Attention: This is an alpha quality pre-release, NO WARRANTY WHATSOEVER   |
+  |                                                                            |
+  +============================================================================+
+
   Thanx for installing muxoro, launch your Pomodoro Timers from any command line
   on your machine, specify the tmux sessions to show the timers, configure color
   and intervals, have fun!
 
-  For the impatient, a 25' timer that shows in all tmux sessions can be launched
-  by:
+  For the impatient, a 25' timer that shows in all tmux sessions or the current
+  session if launched inside a session, can be started via:
          muxoro
+
+  Stop timer and reset status bar in all concerned sessions via:
+         muxoro stop
 
   Any questions should be answered in the README https://github.com/RobertDober/muxoro
   If not, please open an issue.

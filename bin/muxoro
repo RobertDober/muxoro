@@ -1,11 +1,19 @@
-#!/usr/bin/env sh
+#!/usr/bin/env ruby
 
-command=${1:-start}
-if test $# -gt 0
-then
-  if test "$1" = 'start'
-  then
-    shift
-  fi
-fi
-exec ruby $0.rb $command $@
+ARGV.unshift 'start' if ARGV.first != 'start' && ARGV.first != 'stop'
+        
+
+$:.unshift File.expand_path '../../lib', __FILE__
+
+require 'muxoro/cli'
+require 'daemons'
+
+muxoro = Muxoro::CLI.new.init( ARGV[1..-1] )
+reset_session = -> {
+  muxoro.reset_sessions
+}
+ 
+
+Daemons.run_proc 'muxoro', stop_proc: reset_session do
+  muxoro.run!
+end
