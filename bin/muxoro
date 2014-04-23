@@ -3,7 +3,7 @@
 command=${1:-start}
 if test $# -gt 0
 then
-  if test $1 == 'start'
+  if test "$1" = 'start'
   then
     shift
   fi

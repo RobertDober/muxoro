@@ -2,7 +2,7 @@ require 'spec_helper'
 
 require 'muxoro/options_logic'
 
-describe Muxoro::OptionsLogic, :wip do 
+describe Muxoro::OptionsLogic do 
   context 'simple value logic' do 
     subject do
       described_class.new( { 

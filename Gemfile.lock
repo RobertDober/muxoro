@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    muxoro (0.1.0)
+    muxoro (0.0.1.pre.pre)
       daemons (~> 1.1.9)
       lab42_options (~> 0.4.0)
 

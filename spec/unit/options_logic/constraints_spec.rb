@@ -6,7 +6,7 @@ def expect_value_of key
   expect( subject.get key )
 end
 
-describe Muxoro::OptionsLogic, :wip do 
+describe Muxoro::OptionsLogic do 
 
   context 'constraints' do
     subject do

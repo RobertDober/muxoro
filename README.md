@@ -3,6 +3,29 @@
 
 Pomodoro Timer for Tmux Sessions
 
+## Status
+
+### AUAOR
+
+Alpha Use At Own Risk
+
+In theory
+
+```
+      muxoro
+```
+
+Will launch a pomodoro timer for all sessions or the current session.
+
+```
+      muxoro stop
+```
+
+Will kill the daemon and reset the status bar in all concerned sessions.
+
+For more info read on, but very few other features work correctly right now.
+
+
 ## Ridiculously Fast Starting Guide
 
 ```
