@@ -11,7 +11,7 @@ describe Muxoro::CLI do
         .and_return ''
     end
 
-    it do
+    it '', :wip do
       expect( ->{ subject.run [] } ).to raise_error( RuntimeError, 'No tmux seessions running, aborting...' )
     end
     

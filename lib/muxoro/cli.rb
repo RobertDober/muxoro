@@ -7,9 +7,9 @@ module Muxoro
 
     def init args
       @sleepy  = 60
-      @minutes = 25
-      parser   = Lab42::Options.new
+      parser   = Lab42::Options.new time: 25
       @options = parser.parse( args )
+      @minutes = options.time.to_i
       self
     end
 
