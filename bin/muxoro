@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-ARGV.unshift 'start' if ARGV.first != 'start' && ARGV.first != 'stop'
+args = ARGV.dup
+args.unshift 'start' if args.first != 'start' && args.first != 'stop'
         
 
 $:.unshift File.expand_path '../../lib', __FILE__
@@ -8,7 +9,7 @@ $:.unshift File.expand_path '../../lib', __FILE__
 require 'muxoro/cli'
 require 'daemons'
 
-muxoro = Muxoro::CLI.new.init( ARGV[1..-1] )
+muxoro = Muxoro::CLI.new.init( args[1..-1] )
 reset_session = -> {
   muxoro.reset_sessions
 }

@@ -24,6 +24,7 @@ module Muxoro
 
       if options.help
         puts 'muxoro [options]'
+        puts "version: #{Muxoro::VERSION}"
         return
       end
       run!
