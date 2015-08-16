@@ -1,29 +1,35 @@
 # muxoro
 
 
-Pomodoro Timer for Tmux Sessions
+Pomodoro Timer for The Current Tmux Session
 
-## Status
+## Usage
 
-### AUAOR
-
-Alpha Use At Own Risk
-
-In theory
 
 ```
       muxoro
 ```
 
-Will launch a pomodoro timer for all sessions or the current session.
+Will launch a pomodoro timer with default behavior.
+
+In other words it is the same as
+
+```
+    muxoro time:25 sleep_interval:60 short_sleep_interval:10 orange_zone:300 red_zone:60 red_bg:black red_fg:red orange_bg:'#ffdd22' orange_fg:black
+```
+In order to get that stuff explained
+
+```
+    muxoro :help
+```
 
 ```
       muxoro stop
 ```
 
-Will kill the daemon and reset the status bar in all concerned sessions.
+Will kill the daemon and reset the status bar.
 
-For more info read on, but very few other features work correctly right now.
+
 
 
 ## Ridiculously Fast Starting Guide

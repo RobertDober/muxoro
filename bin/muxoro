@@ -1,20 +1,24 @@
 #!/usr/bin/env ruby
 
 args = ARGV.dup
-args.unshift 'start' if args.first != 'start' && args.first != 'stop'
-        
+ARGV.unshift 'start' if ( args & %w{start stop status restart :help :fg} ).empty?
 
-$:.unshift File.expand_path '../../lib', __FILE__
 
-require 'muxoro/cli'
-require 'daemons'
 
-muxoro = Muxoro::CLI.new.init( args[1..-1] )
+require_relative '../lib/muxoro/cli'
+
+muxoro = Muxoro::CLI.new.init args
 reset_session = -> {
-  muxoro.reset_sessions
+  muxoro.reset
 }
- 
 
-Daemons.run_proc 'muxoro', stop_proc: reset_session do
-  muxoro.run!
+exit -1 if muxoro.help
+
+if args.include? ':fg'
+  muxoro.run! %x{tmux display-message -p '#S'}
+else
+  require 'daemons'
+  Daemons.run_proc 'muxoro', stop_proc: reset_session do
+    muxoro.run! %x{tmux display-message -p '#S'}
+  end
 end
